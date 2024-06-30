@@ -23,8 +23,8 @@ class MessageController extends Controller
         $data = Message::create($data);
         $mailto = 'info@jasonvisiontechnologies.com';
         $email = $data["email"];
-        // dd($data);
-        // Mail::to($mailto)->send(new MessageToCompany($data));
+        dd($data);
+        Mail::to($mailto)->send(new MessageToCompany($data));
         return to_route('home')->with('success', 'Your Message has been sent successfully');
 
     }
@@ -34,7 +34,7 @@ class MessageController extends Controller
         $data = Comment::create($data);
         $mailto = 'info@jasonvisiontechnologies.com';
 
-        // Mail::to($mailto)->send(new CommentEmail($data));
+        Mail::to($mailto)->send(new CommentEmail($data));
         return to_route('post', $slug)->with('success', "Comment Has been sent");
     }
 
