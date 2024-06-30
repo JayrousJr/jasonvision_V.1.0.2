@@ -27,7 +27,7 @@ const Hero = () => {
         <Button
           label="View Our Services"
           iconUrl={arrowRight}
-          href="#service"
+          href="/#service"
         />
         <div className="flex justify-start items-center max-md:flex-col flex-wrap w-full mt-16 gap-16">
           {statistics.map((item) => (
