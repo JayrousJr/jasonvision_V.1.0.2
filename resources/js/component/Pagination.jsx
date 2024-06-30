@@ -22,15 +22,15 @@ export default function Pagination({ props }) {
   const endPage = Math.min(totalPages, startPage + visiblePages - 1);
 
   return (
-    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+    <div className="flex items-center justify-between border-t border-semi-dark px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <Link
           preserveScroll
           href={currentPage > 1 ? paginate[currentPage - 1].url : ""}
           onClick={() => handlePageClick(currentPage - 1)}
-          className={`relative inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
+          className={`relative inline-flex items-center rounded-md border border-semi-dark px-4 py-2 text-sm font-medium text-gray-200 hover:bg-semi-dark hover:text-white ${
             currentPage === 1
-              ? "!text-gray-500 !bg-[#e5e7eb] hover:bg-[#e5e7eb] cursor-not-allowed"
+              ? "!text-gray-500 !bg-light-bg hover:bg-light-bg cursor-not-allowed"
               : ""
           }`}
         >
@@ -45,8 +45,8 @@ export default function Pagination({ props }) {
             key={page}
             href={paginate[page - 1].url || ""}
             onClick={() => handlePageClick(page)}
-            className={`relative inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
-              page === currentPage ? "bg-[#f43f5e] text-white" : ""
+            className={`relative inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-200 hover:bg-bg-semi-dark hover:text-white ${
+              page === currentPage ? "bg-bg-semi-dark text-white" : ""
             }`}
           >
             {page}
@@ -56,7 +56,7 @@ export default function Pagination({ props }) {
           preserveScroll
           href={currentPage < totalPages ? paginate[currentPage + 1].url : ""}
           onClick={() => handlePageClick(currentPage + 1)}
-          className={`relative inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
+          className={`relative inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-semi-dark hover:text-white ${
             currentPage === totalPages
               ? "!text-gray-500 hover:bg-[#e5e7eb] cursor-not-allowed"
               : ""
@@ -67,7 +67,7 @@ export default function Pagination({ props }) {
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-gray-200">
             Showing <span className="font-medium">{props.from}</span> to{" "}
             <span className="font-medium">{props.to}</span> of{" "}
             <span className="font-medium">{props.total}</span> results
@@ -82,7 +82,7 @@ export default function Pagination({ props }) {
               preserveScroll
               href={currentPage > 1 ? paginate[currentPage - 1].url : ""}
               onClick={() => handlePageClick(currentPage - 1)}
-              className={`relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
+              className={`relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-semi-dark hover:text-white ${
                 currentPage === 1
                   ? "!text-gray-500 hover:bg-[#e5e7eb] cursor-not-allowed"
                   : ""
@@ -99,8 +99,8 @@ export default function Pagination({ props }) {
                 key={page}
                 href={paginate[page - 1].url || ""}
                 onClick={() => handlePageClick(page)}
-                className={`relative inline-flex items-center border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
-                  page === currentPage ? "bg-[#f43f5e] text-white" : ""
+                className={`relative inline-flex items-center border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-semi-dark hover:text-white ${
+                  page === currentPage ? "bg-semi-dark text-white" : ""
                 }`}
               >
                 {page}
@@ -112,7 +112,7 @@ export default function Pagination({ props }) {
                 currentPage < totalPages ? paginate[currentPage + 1].url : ""
               }
               onClick={() => handlePageClick(currentPage + 1)}
-              className={`relative inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#f43f5e] hover:text-white ${
+              className={`relative inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-semi-dark hover:text-white ${
                 currentPage === totalPages
                   ? "!text-gray-500 hover:bg-[#e5e7eb] bg-[#e5e7eb] cursor-not-allowed"
                   : ""

@@ -12,7 +12,7 @@ class SubService extends Model
     use HasFactory,SoftDeletes;
     protected $fillable = ['service_id','name','description','image','slug'];
 
-    public function subService(): BelongsTo{
+    public function subService(): BelongsTo {
         return $this->belongsTo(Service::class, 'service_id');
     }
 }

@@ -50,8 +50,16 @@ class BlogPostResource extends Resource
                     ->columns()
                     ->schema([
                         Forms\Components\FileUpload::make('image')
-                            ->image()
-                            ->required(),
+                             ->image()
+                            ->imageResizeMode('cover')
+                            ->imageCropAspectRatio('2:1')
+                            ->imageEditor()
+                            ->imageResizeTargetWidth('1000')
+                            ->imageResizeTargetHeight('500')
+                            ->getUploadedFileNameForStorageUsing(function (callable $get): string {
+                                $name = $get('title');
+                                return (string) str('img/posts/' . $name . '.webp');
+                            })->label('Blog Post Image'),
                         Forms\Components\RichEditor::make('content')
                             ->required()
                     ]),

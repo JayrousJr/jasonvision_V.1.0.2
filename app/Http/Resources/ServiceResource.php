@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SubService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,6 +21,7 @@ class ServiceResource extends JsonResource
             'image' => $this->image,
             'id' =>$this->id,
             'slug' =>$this->slug,
+            // "subservice"=> new SubServiceResource($this->subServicesList)
         ];
     }
 }

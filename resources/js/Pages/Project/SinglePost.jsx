@@ -1,7 +1,8 @@
+import Layouts from "@/Layouts/Layouts";
+import Footer from "@/component/Footer";
+import SingleBlogPost from "@/component/SingleBlogPost";
 import { Head } from "@inertiajs/react";
-import Navbar from "../../component/Navigation";
-import Footer from "../../component/Footer";
-import SingleBlogPost from "../../component/blog/SingleBlogPost";
+
 function SinglePost({
   post,
   posts,
@@ -13,14 +14,16 @@ function SinglePost({
   social,
 }) {
   return (
-    <>
+    <Layouts>
       <Head title="Blog Post" />
-      <Navbar props={{ auth, baseUrl }} />
-      <SingleBlogPost
-        props={{ post, baseUrl, posts, service, comment, auth, success }}
-      />
-      <Footer props={service} social={social} />
-    </>
+      <section className="padding ">
+        <SingleBlogPost
+          props={{ post, baseUrl, posts, service, comment, auth, success }}
+        />
+      </section>
+
+      <Footer social={social} service={service} />
+    </Layouts>
   );
 }
 

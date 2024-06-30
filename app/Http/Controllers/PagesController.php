@@ -29,12 +29,15 @@ class PagesController extends Controller
         $visitor->increment('requests');
         $social = SocialMedia::query()->get();
         $visitor->save();
-        $baseUrl = url('/');
+        $baseUrl = url('/');       
+        $blog = BlogPost::query()->latest()->paginate(4);
         $service = Service::query()->get();
         return inertia('Project/Home', [
             'baseUrl' => $baseUrl,
             "service" => ServiceResource::collection($service),
-            'social' => SocialMediaResource::collection($social),
+            'social' => SocialMediaResource::collection($social),            
+            'post' => BlogPostResource::collection($blog),
+            'success' => session('success')
         ]);
     }
     function service($slug)
@@ -44,17 +47,16 @@ class PagesController extends Controller
         $services = Service::query()->where('slug', $slug)->firstOrFail();
         $serviceId = $services->id;
         $sub = SubService::query()->where('service_id', $serviceId)->get();
-        $social = SocialMedia::query()->get();
+        $social = SocialMedia::query()->get();        
 
-        return inertia('Project/ServiceSingle', [
+        return inertia('Project/ServiceDetail', [
             'sub' => SubServiceResource::collection($sub),
             'services' => new ServiceResource($services),
-            'baseUrl' => $baseUrl,
+            'baseUrl' => $baseUrl,            
             'social' => SocialMediaResource::collection($social),
             'service' => ServiceResource::collection($service),
 
         ]);
-
     }
     function about()
     {
@@ -88,7 +90,7 @@ class PagesController extends Controller
     {
         $baseUrl = url('/');
         $service = Service::query()->get();
-        $blog = BlogPost::query()->latest()->paginate(3);
+        $blog = BlogPost::query()->latest()->get();
         $social = SocialMedia::query()->get();
 
         return inertia('Project/Blog', [

@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('service_id')->constrained('services');
             $table->string('name');
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->string('image')->default('img/service/sample.webp');
             $table->timestamps();
             $table->softDeletes();

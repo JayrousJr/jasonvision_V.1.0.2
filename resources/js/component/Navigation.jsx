@@ -1,135 +1,71 @@
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BsXLg, BsList, BsEmojiHeartEyesFill } from "react-icons/bs";
+import React from "react";
 import logo from "../../../public/assets/images/logo.png";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "@inertiajs/react";
-const navigation = [
-  {
-    name: "Home",
-    href: route("home"),
-    current: false,
-    active: route().current("home"),
-  },
-  // {
-  //   name: "Our Services",
-  //   href: "/#service",
-  //   current: false,
-  //   active: route().current("home"),
-  // },
-  {
-    name: "Contact Us",
-    href: route("contact"),
-    current: false,
-    active: route().current("contact"),
-  },
-  {
-    name: "About Us",
-    href: route("about"),
-    current: false,
-    active: route().current("about"),
-  },
+import { navigation } from "@/constants";
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
 
-  {
-    name: "Blog",
-    href: route("blog"),
-    current: false,
-    active: route().current("blog"),
-  },
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  {
-    name: "Job",
-    href: route("job"),
-    current: false,
-    active: route().current("job"),
-  },
-];
-
-const userNavigationLogged = [
-  { name: "Your Profile", href: route("dashboard") },
-  { name: "Log out", href: route("logout"), type: "button", as: "button" },
-];
-
-const userNavigationNotLogged = [
-  { name: "Sign In", href: route("login") },
-  { name: "Register", href: route("register") },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Navigation({ props }) {
-  const auth = props.auth;
-  const userdata = props.auth.user;
-  const baseUrl = props.baseUrl;
-  const user = {
-    name: auth === userdata?.name,
-    email: auth === userdata?.email,
-    imageUrl: baseUrl + "/storage/" + userdata?.profile_photo_path,
-  };
   return (
-    <>
-      <div className="min-h-full w-full z-10 shadow-md sticky">
-        <Disclosure as="nav" className="bg-white">
-          {({ open }) => (
-            <>
-              <div className="mx-auto max-w-7xl py-3 px-4 sm:px-6 lg:px-8">
-                <div className="flex h-16 items-center justify-between">
-                  <div className="flex-shrink-0">
-                    <img className="h-8 w-8" src={logo} alt="Your Company" />
-                  </div>
-                  <div className="flex items-center">
-                    <div className="hidden md:block">
-                      <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-slate-900 hover:bg-gray-100 rounded-md px-3 py-2 text-sm font-medium "
-                            aria-current={item.current ? "page" : undefined}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="-mr-2 flex md:hidden">
-                    {/* Mobile menu button */}
-                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-0.5" />
-                      <span className="sr-only">Open main menu</span>
-                      {open ? (
-                        <BsXLg className="block h-6 w-6" aria-hidden="true" />
-                      ) : (
-                        <BsList className="block h-6 w-6" aria-hidden="true" />
-                      )}
-                    </Disclosure.Button>
-                  </div>
-                </div>
-              </div>
-
-              <Disclosure.Panel className="md:hidden">
-                <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={
-                        "text-slate-900 block  hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
-                      }
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </Disclosure.Panel>
-            </>
+    <header className="padding-x py-6 z-20 w-full fixed  top-0 bg-gradient-custom shadow-2xl">
+      <nav className="flex justify-between max-container ">
+        <Link href="/">
+          <img src={logo} alt="logo" width={40} />
+        </Link>
+        <ul className="flex flex-1 justify-end pr-8 items-center gap-12 max-lg:hidden">
+          {navigation.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                arial-current={item.current ? "page" : undefined}
+                className="text-white font-montserrat leading-normal text-md hover:text-light-bg"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className="hidden max-lg:block flex self-center cursor-pointer z-20"
+        >
+          {isOpen ? (
+            <IoMdClose className="text-white text-3xl" />
+          ) : (
+            <GiHamburgerMenu className="text-white text-3xl" />
           )}
-        </Disclosure>
-      </div>
-    </>
+        </div>
+
+        <div
+          className={`w-[80vw] h-full bg-dark-background bg-gradient-custom z-12 top-0 left-0 fixed  border border-semi-dark ease-in-out duration-300 ${
+            isOpen ? "translate-x-0" : " -translate-x-full"
+          }`}
+        >
+          <div className="mt-5 ml-7">
+            <Link href="/" className="relative">
+              <img src={logo} alt="logo" width={40} />
+            </Link>
+          </div>
+          <ul className="mt-10 ml-7 gap-5 flex flex-col items-start justify-center">
+            {navigation.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  arial-current={item.current ? "page" : undefined}
+                  className="text-light-bg hover:text-light-bg font-bold font-montserrat leading-normal text-xl"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
-}
+};
+
+export default Navigation;

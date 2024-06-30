@@ -57,7 +57,7 @@ class SubServiceResource extends Resource
                     ->schema([
                         Forms\Components\RichEditor::make('description')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(15000),
                         Forms\Components\FileUpload::make('image')
                             ->image()
                             ->imageResizeMode('cover')

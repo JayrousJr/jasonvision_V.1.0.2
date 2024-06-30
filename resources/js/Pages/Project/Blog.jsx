@@ -1,17 +1,22 @@
+import Layouts from "@/Layouts/Layouts";
+import Footer from "@/component/Footer";
+import { PopularProducts } from "@/sections";
 import { Head } from "@inertiajs/react";
-import Navbar from "../../component/Navigation";
-import BlogPost from "../../component/blog/BlogPost";
-import Footer from "../../component/Footer";
+import React from "react";
 
-function Blog({ auth, service, baseUrl, post, services, social }) {
+const Blog = ({ service, post, social }) => {
   return (
-    <>
-      <Head title="About Us" />
-      <Navbar props={{ auth, baseUrl, service }} />
-      <BlogPost props={{ post, service, services, baseUrl }} />
-      <Footer props={service} social={social} />
-    </>
+    <Layouts>
+      <Head title="Blog" />
+      <div class="fixed inset-0 bg-gradient-custom opacity-70 blur-xl pointer-events-none"></div>
+      <section className="padding relative">
+        <PopularProducts post={post} />
+      </section>
+      <footer className="relative">
+        <Footer social={social} service={service} />
+      </footer>
+    </Layouts>
   );
-}
+};
 
 export default Blog;
