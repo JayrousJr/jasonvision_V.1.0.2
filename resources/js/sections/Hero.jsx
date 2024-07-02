@@ -1,8 +1,8 @@
 import Button from "@/component/Button";
 import arrowRight from "../../../public/assets/icons/chevron-right.svg";
 import React, { useState } from "react";
-import { shoes, statistics } from "@/constants";
-import bg2 from "../../../public/assets/images/bg2.jpg";
+import { heroEmage, statistics } from "@/constants";
+import bg2 from "../../../public/assets/images/bg2.png";
 import ImageCard from "@/component/ImageCard";
 
 const Hero = () => {
@@ -49,7 +49,7 @@ const Hero = () => {
           className="object-cover relative z-10 h-[400px] w-[610px] rounded-md"
         />
         <div className="flex sm:gap-6 gap-4 ">
-          {shoes.map((item) => (
+          {heroEmage.map((item) => (
             <div key={item.image}>
               <ImageCard
                 imgUrl={item}

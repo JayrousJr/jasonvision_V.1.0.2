@@ -1,7 +1,7 @@
 import { BsEnvelope, BsPhone, BsWhatsapp } from "react-icons/bs";
 import { shieldTick, support, truckFast } from "../../../public/assets/icons";
 import {
-  customer1,
+  customer,
   customer2,
   bg1,
   bg2,
@@ -32,7 +32,7 @@ export const contacts = [
     target: "_blank",
   },
 ];
-export const navigation = [
+export const navigation1 = [
   {
     name: "Home",
     href: "/#home",
@@ -52,7 +52,7 @@ export const navigation = [
     active: route().current("about"),
   },
   {
-    name: "Popular",
+    name: "Site Service",
     href: "/#popular",
     current: false,
     active: route().current("home"),
@@ -63,6 +63,8 @@ export const navigation = [
     current: false,
     active: route().current("contact"),
   },
+];
+export const navigation = [
   {
     name: "Blog",
     href: route("blog"),
@@ -76,8 +78,7 @@ export const navigation = [
     active: route().current("job"),
   },
 ];
-
-export const shoes = [
+export const heroEmage = [
   {
     thumbnail: bg2,
     image: bg2,
@@ -101,40 +102,42 @@ export const statistics = [
 export const services = [
   {
     imgURL: truckFast,
-    label: "Free shipping",
-    subtext: "Enjoy seamless shopping with our complimentary shipping service.",
+    label: "Free delivery",
+    subtext:
+      "Enjoy seamless free delivery whenever you get a service from us, you don't have to worry.",
   },
   {
     imgURL: shieldTick,
-    label: "Secure Payment",
+    label: "Security",
     subtext:
-      "Experience worry-free transactions with our secure payment options.",
+      "Experience secured softwares deom us, we dedicate to your business grow, Privacy is the first.",
   },
   {
     imgURL: support,
     label: "Love to help you",
-    subtext: "Our dedicated team is here to assist you every step of the way.",
+    subtext:
+      "Our dedicated customer service are happy and ready to help you choose the best service.",
   },
 ];
 
 export const reviews = [
   {
-    imgURL: customer1,
-    customerName: "Kassim Same",
+    imgURL: customer,
+    customerName: "Joshua Jayrous",
     rating: 4.5,
     feedback:
       "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!",
   },
   {
-    imgURL: customer2,
-    customerName: "Ohio Rama",
+    imgURL: customer,
+    customerName: "Abelnego",
     rating: 4.5,
     feedback:
       "The product not only met but exceeded my expectations. I'll definitely be a returning customer!",
   },
   ,
   {
-    imgURL: customer2,
+    imgURL: customer,
     customerName: "Franklyne Jay",
     rating: 4.5,
     feedback:
