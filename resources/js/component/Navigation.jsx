@@ -66,12 +66,27 @@ const Navigation = () => {
             </Link>
           </div>
           <ul className="mt-10 ml-7 gap-5 flex flex-col items-start justify-center">
+            {navigation1.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className={`${
+                    active === item.name ? "text-light-bg " : "text-white "
+                  }font-montserrat leading-normal text-md hover:text-light-bg`}
+                  onClick={() => setActive(item.name)}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
             {navigation.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
                   arial-current={item.current ? "page" : undefined}
-                  className="text-light-bg hover:text-light-bg font-bold font-montserrat leading-normal text-xl"
+                  className={`${
+                    active === item.name ? "text-light-bg " : "text-white "
+                  }font-montserrat leading-normal text-md hover:text-light-bg`}
                 >
                   {item.name}
                 </Link>

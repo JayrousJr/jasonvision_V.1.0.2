@@ -10,6 +10,7 @@ import {
   car,
   bg6,
   soft,
+  customer3,
 } from "../../../public/assets/images";
 export const slides = [soft, bg4, bg6, car];
 export const contacts = [
@@ -116,30 +117,30 @@ export const services = [
     imgURL: support,
     label: "Love to help you",
     subtext:
-      "Our dedicated customer service are happy and ready to help you choose the best service.",
+      "Our dedicated customer service are happy and ready to help you choose the best service..",
   },
 ];
 
 export const reviews = [
   {
-    imgURL: customer,
-    customerName: "Joshua Jayrous",
-    rating: 4.5,
-    feedback:
-      "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!",
-  },
-  {
-    imgURL: customer,
-    customerName: "Abelnego",
-    rating: 4.5,
+    imgURL: customer2,
+    customerName: "Abdulkadri Omari",
+    rating: "5.0",
     feedback:
       "The product not only met but exceeded my expectations. I'll definitely be a returning customer!",
   },
-  ,
   {
     imgURL: customer,
-    customerName: "Franklyne Jay",
-    rating: 4.5,
+    customerName: "Joshua Jayrous",
+    rating: "4.0",
+    feedback:
+      "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!",
+  },
+
+  {
+    imgURL: customer3,
+    customerName: "Emile Jay",
+    rating: "4.5",
     feedback:
       "I have now managed to get three times the profit within a week unlikely before i used your software!",
   },

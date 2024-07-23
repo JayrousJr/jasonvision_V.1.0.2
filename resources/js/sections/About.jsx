@@ -1,4 +1,4 @@
-import Button from "@/component/Button";
+import ButtonTwo from "@/component/ButtonTwo";
 import { bg4 } from "../../../public/assets/images/index";
 import React, { useEffect, useState } from "react";
 import { slides } from "@/constants";
@@ -40,14 +40,14 @@ const About = () => {
           </span>
         </p>
         <div className="mt-11 sm:max-w-sm">
-          <Button label="Get More Details" href="#contact" />
+          <ButtonTwo label="Get More Details" href="#contact" />
         </div>
       </div>
       <div className="flex justify-center items-center">
         <img
           src={slides[currentImageIndex]}
           alt="About Image"
-          className="object-cover mt-14 ease-in-out duration-300 w-[720px] h-[440px]"
+          className="object-cover mt-14 transition-all ease-in-out duration-300 w-[720px] h-[440px] rounded-2xl"
         />
       </div>
     </section>

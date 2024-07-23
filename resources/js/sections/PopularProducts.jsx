@@ -3,6 +3,7 @@ import BlogPost from "@/component/BlogPost";
 import { Link } from "@inertiajs/react";
 import cheveronRight from "../../../public/assets/icons/chevron-right.svg";
 import Button from "@/component/Button";
+import { Tilt } from "react-tilt";
 const PopularProducts = (post) => {
   return (
     <section
@@ -20,7 +21,15 @@ const PopularProducts = (post) => {
       </div>
       <div className="mt-16 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-4">
         {post.post.data.map((item, index) => (
-          <BlogPost key={index} {...item} baseUrl={post.baseUrl} />
+          <Tilt
+            options={{
+              max: 20,
+              scale: 1,
+              speed: 450,
+            }}
+          >
+            <BlogPost key={index} {...item} baseUrl={post.baseUrl} />
+          </Tilt>
         ))}
       </div>
       <div className="mt-8 ml-2 lg:text-xl sm:text-xl font-montserrat  text-dark-background hover:text-semi-dark sm:max-w-sm">
