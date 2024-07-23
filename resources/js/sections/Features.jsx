@@ -27,6 +27,7 @@ const Features = () => {
         <div className="grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-12 pb-10 px-4">
           {services.map((item) => (
             <Tilt
+              key={item.label}
               options={{
                 max: 20,
                 scale: 1,

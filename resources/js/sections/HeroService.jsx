@@ -6,7 +6,6 @@ import SubServiceCard from "@/component/SubServiceCard";
 const HeroService = ({ service, sub }) => {
   const servDetails = service.data;
   const subService = sub.data;
-  console.log(subService);
   const [content, setContent] = useState(subService[0]);
   return (
     <section className="w-full flex flex-col justify-center min-h-screen gap-10 max-container">

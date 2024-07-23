@@ -22,13 +22,14 @@ const PopularProducts = (post) => {
       <div className="mt-16 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-4">
         {post.post.data.map((item, index) => (
           <Tilt
+            key={index}
             options={{
               max: 20,
               scale: 1,
               speed: 450,
             }}
           >
-            <BlogPost key={index} {...item} baseUrl={post.baseUrl} />
+            <BlogPost {...item} baseUrl={post.baseUrl} />
           </Tilt>
         ))}
       </div>

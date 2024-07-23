@@ -19,7 +19,7 @@ const Home = ({ post, baseUrl, service, success, social }) => {
       <Layouts>
         <Head title="Home" />
         <div className="">
-          <div class="fixed inset-0 bg-gradient-custom opacity-70 blur-xl pointer-events-none"></div>
+          <div className="fixed inset-0 bg-gradient-custom opacity-70 blur-xl pointer-events-none"></div>
           <section className="xl:padding-l wide:padding-r padding-b ">
             <Hero />
           </section>

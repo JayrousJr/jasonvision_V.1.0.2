@@ -39,7 +39,7 @@ const Contact = ({ success }) => {
         <div className="flex flex-col justify-center items-center gap-3 mt-6">
           {contacts.map((item) => (
             <a
-              key={item.name}
+              key={item.link}
               href={item.link}
               target={item.target}
               className="inline-flex items-center self-start font-montserrat gap-2 hover:text-light-bg md:grid-cols-1"

@@ -18,8 +18,9 @@ const Services = ({ service }) => {
         </p>
       </div>
       <div className="mt-16 grid  lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 sm:gap-4 gap-4">
-        {service.service.data.map((item) => (
+        {service.service.data.map((item, index) => (
           <Tilt
+            key={index}
             options={{
               max: 20,
               scale: 1,

@@ -65,7 +65,7 @@ const Footer = ({ social, service }) => {
               {" "}
               {service.data.map((item) => (
                 <Link
-                  href={item.slug}
+                  href={route("service", item.slug)}
                   className="hover:text-light-bg font-montserrat"
                   key={item.name}
                 >
