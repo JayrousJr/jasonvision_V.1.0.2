@@ -2,10 +2,14 @@ import { Link } from "@inertiajs/react";
 import React from "react";
 import Button from "./Button";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
-
-const ServiceCard = ({ service, baseURl }) => {
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/motion";
+const ServiceCard = ({ service, baseURl, index }) => {
   return (
-    <div className="flex flex-col justify-center items-center border border-semi-dark p-4 rounded-xl my-6">
+    <motion.div
+      variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+      className="flex flex-col justify-center items-center border border-semi-dark p-4 rounded-xl my-6"
+    >
       <img
         src={baseURl + "/storage/" + service.image}
         alt={service.name}
@@ -36,7 +40,7 @@ const ServiceCard = ({ service, baseURl }) => {
       <div className="mt-11 self-start">
         <Button label="Read More" href={route("service", service.slug)} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

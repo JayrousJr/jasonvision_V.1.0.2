@@ -7,7 +7,9 @@ import {
   BsTwitterX,
   BsYoutube,
 } from "react-icons/bs";
+import { motion } from "framer-motion";
 import { IoMdPin } from "react-icons/io";
+import { fadeIn } from "@/utils/motion";
 
 const BlogPost = ({
   content,
@@ -21,9 +23,13 @@ const BlogPost = ({
   twitter,
   youtube,
   baseUrl,
+  index,
 }) => {
   return (
-    <div className="flex flex-1 flex-col w-full max-sm:w-full text-white p-4 shadow-xl rounded-xl border border-semi-dark">
+    <motion.div
+      variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+      className="flex flex-1 flex-col w-full max-sm:w-full text-white p-4 shadow-xl rounded-xl border border-semi-dark"
+    >
       <Link href={route("post", slug)}>
         <img
           src={"/storage/" + image}
@@ -38,7 +44,9 @@ const BlogPost = ({
         </p>
       </div>
       <div className="my-4 flex text-md font-montserrat font-semibold ">
-        <Link href={route("post", slug)}>{title}</Link>
+        <Link href={route("post", slug)} className="hover:text-semi-dark">
+          {title}
+        </Link>
       </div>
       <div className="flex flex-row gap-x-3 text-2xl justify-between items-center mb-4 border-t border-slate-700 pt-4 sm:flex-wrap sm:gap-4">
         <div className="flex flex-row gap-x-3">
@@ -76,7 +84,7 @@ const BlogPost = ({
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

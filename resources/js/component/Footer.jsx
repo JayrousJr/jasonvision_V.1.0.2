@@ -11,8 +11,10 @@ import {
   BsInstagram,
   BsDiscord,
 } from "react-icons/bs";
+
 import DynamicIcons from "./DynamicIcon";
 import { navigation } from "@/constants";
+import { Tilt } from "react-tilt";
 const Footer = ({ social, service }) => {
   const date = new Date().getFullYear("Y");
   return (
@@ -38,6 +40,7 @@ const Footer = ({ social, service }) => {
                 className="text-light-bg hover:text-white dark:hover:text-white border border-light-bg p-2 rounded-full"
               >
                 <DynamicIcons iconName={item.icon} />
+
                 <span className="sr-only">Icon</span>
               </a>
             ))}

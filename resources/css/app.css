@@ -53,7 +53,7 @@
     }
 
     .padding-b {
-        @apply sm:pb-24 pb-12;
+        @apply sm:pb-12 pb-12;
     }
 
     .info-text {

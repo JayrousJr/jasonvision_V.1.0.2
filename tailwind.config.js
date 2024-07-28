@@ -39,6 +39,8 @@ export default {
         darkblue: "#001c30",
         darkpurple: "#1a1a2e",
         darknavy: "#16213e",
+        tertiary: "rgb(9, 3 ,37)",
+        "dark-bg": "rgba(5, 8, 22)",
       },
       boxShadow: {
         "3xl": "0 10px 40px rgba(0, 0, 0, 0.1)",

@@ -3,10 +3,12 @@ import TextArea from "@/Components/TextArea";
 import TextInput from "@/Components/TextInput";
 import PopUp from "@/component/PopUp";
 import { contacts } from "@/constants";
+import { HigherOrderComponentWrapper } from "@/hoc";
 import { useForm } from "@inertiajs/react";
 import React from "react";
 import { BsBuilding } from "react-icons/bs";
-
+import { motion } from "framer-motion";
+import { slideIn } from "@/utils/motion";
 const Contact = ({ success }) => {
   const { data, setData, post, errors, reset, processing, onSuccess } = useForm(
     {
@@ -24,13 +26,16 @@ const Contact = ({ success }) => {
     });
   }
   return (
-    <section
+    <motion.section
       id="contact"
-      className="border-t border-semi-dark gap-10 w-full max-container grid lg:grid-cols-2"
+      className=" gap-10 w-full max-container grid lg:grid-cols-2 overflow-hidden"
     >
       <PopUp props={success} />
-      <div className="pt-14 flex flex-1 flex-col">
-        <h1 className="mt-10 font-palanquin text-4xl font-bold sm:max-w-lg">
+      <motion.div
+        variants={slideIn("left", "tween", 0.2, 1)}
+        className="flex flex-1 flex-col"
+      >
+        <h1 className="mt-10 font-palanquin text-4xl font-black sm:max-w-lg">
           Contact <span className="text-semi-dark inline-block"> Us </span>
         </h1>
         <p className=" text-lg font-montserrat mt-4">
@@ -55,8 +60,12 @@ const Contact = ({ success }) => {
             <BsBuilding className=" h-6 w-6" /> Dar Es Salaam, Tanzania.
           </span>
         </div>
-      </div>
-      <div className="self-start" aria-hidden="true">
+      </motion.div>
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="self-start"
+        aria-hidden="true"
+      >
         <h2 className="text-xl text-center font-bold tracking-tight text-white font-montserrat sm:text-xl lg:pt-20">
           Drop your message
         </h2>
@@ -144,9 +153,9 @@ const Contact = ({ success }) => {
             </button>
           </div>
         </form>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default Contact;
+export default HigherOrderComponentWrapper(Contact, "contact");

@@ -1,9 +1,13 @@
 import React from "react";
 import { BsStar, BsStarFill } from "react-icons/bs";
-
-const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/motion";
+const ReviewCard = ({ imgURL, customerName, rating, feedback, index }) => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <motion.div
+      variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+      className="flex justify-center items-center flex-col bg-dark-background p-6 rounded-2xl"
+    >
       <img
         src={imgURL}
         alt="Customer"
@@ -15,7 +19,7 @@ const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
         <p className="font-montserrat">({rating})</p>
       </div>
       <h3 className="font-montserrat text-xl font-bold">{customerName}</h3>
-    </div>
+    </motion.div>
   );
 };
 export default ReviewCard;

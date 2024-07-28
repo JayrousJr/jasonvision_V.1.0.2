@@ -23,22 +23,22 @@ const Home = ({ post, baseUrl, service, success, social }) => {
           <section className="xl:padding-l wide:padding-r padding-b ">
             <Hero />
           </section>
-          <section className="padding-x py-6 w-full relative">
+          <section className="padding-x  w-full relative">
             <Features />
           </section>
-          <section className="padding-x py-10 relative">
+          <section className="padding-x w-full relative">
             <Services service={{ service, baseUrl }} />
           </section>
-          <section className="padding relative">
+          <section className="padding-x w-full relative">
             <About />
           </section>
-          <section className="padding relative">
+          <section className="padding-x relative">
             <PopularProducts post={post} baseUrl={baseUrl} />
           </section>
-          <section className="padding relative">
+          <section className="padding-x relative">
             <CustomerReviews />
           </section>
-          <section className="padding relative">
+          <section className="padding-x relative">
             <Contact success={success} />
           </section>
           <footer className="relative">

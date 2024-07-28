@@ -1,7 +1,9 @@
 import ButtonTwo from "@/component/ButtonTwo";
-import { bg4 } from "../../../public/assets/images/index";
 import React, { useEffect, useState } from "react";
 import { slides } from "@/constants";
+import { HigherOrderComponentWrapper } from "@/hoc";
+import { motion } from "framer-motion";
+import { slideIn, textVariant } from "@/utils/motion";
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const nextImage = () => {
@@ -12,18 +14,24 @@ const About = () => {
     return () => clearInterval(intervalID);
   }, []);
   return (
-    <section
+    <motion.section
       id="about"
-      className="border-t border-semi-dark flex justify-between max-lg:flex-col items-center gap-10 w-full max-container"
+      className="flex justify-between max-lg:flex-col items-center gap-12 max-container overflow-hidden"
     >
-      <div className="pt-14 flex flex-1 flex-col">
-        <h1 className="mt-10 font-palanquin text-4xl font-bold sm:max-w-lg">
+      <motion.div
+        variants={slideIn("left", "tween", 0.2, 1)}
+        className="flex flex-1 flex-col"
+      >
+        <motion.h1
+          variants={textVariant()}
+          className="mt-10 font-palanquin text-4xl font-black sm:max-w-lg"
+        >
           We Provide{" "}
           <span className="text-semi-dark inline-block"> Super </span>
           <br />
-          <span className="text-semi-dark inline-block"> Quality </span>{" "}
           Products
-        </h1>
+          <span className="text-semi-dark inline-block"> Quality </span>{" "}
+        </motion.h1>
 
         <p className="text-md mt-6 font-montserrat sm:max-w-lg flex flex-col gap-4">
           <span className="">
@@ -42,16 +50,19 @@ const About = () => {
         <div className="mt-11 sm:max-w-sm">
           <ButtonTwo label="Get More Details" href="#contact" />
         </div>
-      </div>
-      <div className="flex justify-center items-center">
+      </motion.div>
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="flex justify-center items-center"
+      >
         <img
           src={slides[currentImageIndex]}
           alt="About Image"
           className="object-cover mt-14 transition-all ease-in-out duration-300 w-[720px] h-[440px] rounded-2xl"
         />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default About;
+export default HigherOrderComponentWrapper(About, "about");

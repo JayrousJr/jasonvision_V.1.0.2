@@ -23,7 +23,6 @@ class MessageController extends Controller
         $data = Message::create($data);
         $mailto = 'info@jasonvisiontechnologies.com';
         $email = $data["email"];
-        dd($data);
         Mail::to($mailto)->send(new MessageToCompany($data));
         return to_route('home')->with('success', 'Your Message has been sent successfully');
 

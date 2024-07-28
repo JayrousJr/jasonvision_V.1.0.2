@@ -30,7 +30,7 @@ class PagesController extends Controller
         $social = SocialMedia::query()->get();
         $visitor->save();
         $baseUrl = url('/');       
-        $blog = BlogPost::query()->latest()->paginate(4);
+        $blog = BlogPost::query()->latest()->paginate(3);
         $service = Service::query()->get();
         return inertia('Project/Home', [
             'baseUrl' => $baseUrl,
